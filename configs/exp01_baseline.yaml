@@ -25,6 +25,7 @@ tracking:
   experiment_name: taia_aula03
   tags:
     aula: "03"
+    run_type: experiment
     variant: baseline
     changed_param: none
     hypothesis: "baseline para comparação"

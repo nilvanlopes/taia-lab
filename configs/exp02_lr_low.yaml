@@ -25,6 +25,7 @@ tracking:
   experiment_name: taia_aula03
   tags:
     aula: "03"
+    run_type: experiment
     variant: lr_sweep
     changed_param: "train.lr"
     hypothesis: "lr menor pode melhorar estabilidade e generalização"

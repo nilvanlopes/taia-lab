@@ -12,6 +12,7 @@ help:
 	@echo "  exp01      - roda baseline (incremental via stamp)"
 	@echo "  exp02      - roda variação de lr (incremental via stamp)"
 	@echo "  exp03      - roda hidden_dim=128 (incremental via stamp)"
+	@echo "  exp04      - roda pipeline completo (incremental via stamp)"
 	@echo "  mlflow-ui  - abre MLflow UI (local)"
 	@echo "  clean      - remove outputs (models/reports/mlruns/.stamps)"
 
@@ -23,11 +24,12 @@ mlflow-ui:
 	cd $(ROOT) && mlflow ui --backend-store-uri ./mlruns
 
 clean:
-	rm -rf $(ROOT)/models $(ROOT)/reports $(ROOT)/mlruns $(ROOT)/.stamps
+	rm -rf $(ROOT)/models $(ROOT)/artifacts $(ROOT)/reports $(ROOT)/mlruns $(ROOT)/.stamps
 
 exp01: $(STAMP_DIR)/exp01_baseline.ok
 exp02: $(STAMP_DIR)/exp02_lr002.ok
 exp03: $(STAMP_DIR)/exp03_hidden128.ok
+exp04: $(STAMP_DIR)/exp04_pipeline.ok
 
 $(STAMP_DIR)/exp01_baseline.ok: $(CONFIG_DIR)/exp01_baseline.yaml $(RUNNER) $(SEEDPY)
 	@mkdir -p $(STAMP_DIR)
@@ -42,4 +44,9 @@ $(STAMP_DIR)/exp02_lr002.ok: $(CONFIG_DIR)/exp02_lr002.yaml $(RUNNER) $(SEEDPY)
 $(STAMP_DIR)/exp03_hidden128.ok: $(CONFIG_DIR)/exp03_hidden128.yaml $(RUNNER) $(SEEDPY)
 	@mkdir -p $(STAMP_DIR)
 	cd $(ROOT) && python -m taia_lab.pipelines.run_experiment --config configs/exp03_hidden128.yaml
+	@touch $@
+
+$(STAMP_DIR)/exp04_pipeline.ok: $(CONFIG_DIR)/exp04_pipeline.yaml $(RUNNER) $(SEEDPY)
+	@mkdir -p $(STAMP_DIR)
+	cd $(ROOT) && python -m taia_lab.pipelines.run_supervised_pipeline --config configs/exp04_pipeline.yaml
 	@touch $@

@@ -25,6 +25,7 @@ tracking:
   experiment_name: taia_aula03
   tags:
     aula: "03"
+    run_type: experiment
     variant: capacity_test
     changed_param: "model.hidden_dim"
     hypothesis: "hidden_dim maior pode melhorar val_acc com risco de overfitting"
