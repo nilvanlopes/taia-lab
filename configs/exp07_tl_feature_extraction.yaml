@@ -38,4 +38,4 @@ tracking:
 
 runtime:
   deterministic: true
-  device_preference: mps # auto|cuda|mps|cpu
+  device_preference: auto # auto|cuda|mps|cpu
