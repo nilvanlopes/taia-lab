@@ -11,6 +11,7 @@ __pycache__/
 models/
 reports/
 mlruns/
+artifacts/
 data/
 data/raw/*
 data/processed/*
@@ -21,7 +22,9 @@ src/taia_lab.egg-info
 # Ambientes
 .venv/
 venv/
+.stamps/
 !models/.gitkeep
 !reports/.gitkeep
+!artifacts/.gitkeep
 !data/raw/.gitkeep
 !data/processed/.gitkeep
