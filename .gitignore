@@ -23,6 +23,7 @@ src/taia_lab.egg-info
 .venv/
 venv/
 .stamps/
+.agents/
 !models/.gitkeep
 !reports/.gitkeep
 !artifacts/.gitkeep
