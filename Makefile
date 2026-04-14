@@ -1,4 +1,4 @@
-.PHONY: help install mlflow-ui clean exp01 exp02 exp03 exp04 exp04_1 exp06a exp06b exp06c exp07a exp07b exp07c
+.PHONY: help install mlflow-ui clean exp01 exp02 exp03 exp04 exp06a exp06b exp06c exp07a exp07b exp07c
 
 ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 STAMP_DIR := $(ROOT)/.stamps
